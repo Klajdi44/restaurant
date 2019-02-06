@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+
+</head>
+<body>
+  <nav id="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="vintage.html">Starters</a></li>
+                <li><a href="Design.html">Main corses</a></li>
+                <li><a href="Profile.html">Drinks</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+ <header>
+
+  <h1>Welcome to Petrograd</h1>
+  <img src="images/kartofler.jpg" alt="patejta">
+  <h2 class="menu">Starters</h2>
+  </header>
+
+
+
+ <main></main>
+
+
+  <template id="mytemp">
+  <article>
+
+    <h3>Name</h3>
+     <h2>Price</h2>
+     <img src="images/moldaviskfiskesuppe-md.jpg" alt="pic">
+
+     <a href="#"><p> Read more</p></a>
+
+  </article>
+  </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    const template = document.querySelector("#mytemp").content;
+      const main = document.querySelector("main");
+
+
+       for(let i =0; i <10; i++){
+
+
+
+
+      let clone = template.cloneNode(true);
+      clone.querySelector("h3").textContent="Name of meal";
+      clone.querySelector("h2").textContent="59, - kr.";
+      clone.querySelector("img").src="images/moldaviskfiskesuppe-md.jpg";
+
+      main.appendChild(clone);
+
+}
+
+
+
+
+
+    </script>
+
+</body>
+</html>
