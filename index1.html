@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 
 </head>
+
 <body>
-  <nav id="navbar">
+    <nav id="navbar">
         <div class="container">
             <ul>
                 <li><a href="#"> Home</a></li>
@@ -23,62 +25,92 @@
 
 
 
- <header>
+    <header>
 
-  <h1>Welcome to Petrograd</h1>
-  <img src="images/kartofler.jpg" alt="patejta">
-  <h2 class="menu">Starters</h2>
-  </header>
+        <h1>Welcome to Petrograd</h1>
+        <img src="images/kartofler.jpg" alt="patejta">
 
-
-
- <main></main>
-
-
-  <template id="mytemp">
-  <article>
-
-    <h3>Name</h3>
-     <h2>Price</h2>
-     <img src="images/moldaviskfiskesuppe-md.jpg" alt="pic">
-
-     <a href="#"><p> Read more</p></a>
-
-  </article>
-  </template>
+    </header>
 
 
 
-
-  <script>
-    const template = document.querySelector("#mytemp").content;
-      const main = document.querySelector("main");
-      const productlistLink = "http://kea-alt-del.dk/t5/api/productlist";
-      const imgLink = "https://kea-alt-del.dk/t5/site/imgs/";
+    <main>
+       <h2 class="menu">Starters</h2>
+        <section id="starters">
 
 
-fetch("http://kea-alt-del.dk/t5/api/productlist").then(e=>e.json()).then(data=>data.forEach(showdata))
+        </section>
+        <h2 class="menu">Mains</h2>
+        <section id="mains"></section>
+                <h2 class="menu">Desserts</h2>
+
+        <section id="desserts"></section>
+                <h2 class="menu">Drinks</h2>
+
+        <section id="drinks"></section>
+    </main>
 
 
-       function showdata (oneObject){
-           console.log(oneObject.name);
-      let clone = template.cloneNode(true);
-      clone.querySelector("h3").textContent=oneObject.name;
-      clone.querySelector("h2").textContent=oneObject.price + " " + "-kr";
-      clone.querySelector("img").src=imgLink +"small/"+ oneObject.image
-          + "-sm.jpg";
-      clone.querySelector("img").alt=oneObject.name;
+    <template id="mytemp">
+        <article>
 
-      main.appendChild(clone);
+            <h3>Name</h3>
+            <h2>Price</h2>
+            <img src="images/moldaviskfiskesuppe-md.jpg" alt="pic">
 
-}
+            <a href="#">
+                <p> Read more</p>
+            </a>
+
+        </article>
+    </template>
 
 
+
+
+    <script>
+        const template = document.querySelector("#mytemp").content;
+        const main = document.querySelector("main");
+        const productlistLink = "http://kea-alt-del.dk/t5/api/productlist";
+        const imgLink = "https://kea-alt-del.dk/t5/site/imgs/";
+        const starterSection = document.querySelector("#starters");
+        const mainSection = document.querySelector("#mains");
+        const dessertSection = document.querySelector("#desserts");
+        const drinksSection = document.querySelector("#drinks");
+
+
+        fetch("http://kea-alt-del.dk/t5/api/productlist").then(e => e.json()).then(data => data.forEach(showdata))
+
+
+        function showdata(oneObject) {
+            console.log(oneObject.name);
+            let clone = template.cloneNode(true);
+            clone.querySelector("h3").textContent = oneObject.name;
+            clone.querySelector("h2").textContent = oneObject.price + " " + "-kr";
+            clone.querySelector("img").src = imgLink + "medium/" + oneObject.image +
+                "-md.jpg";
+            clone.querySelector("img").alt = oneObject.name;
+            if (oneObject.category == "starter") {
+                starterSection.appendChild(clone);
+            } else if (oneObject.category == "main") {
+                mainSection.appendChild(clone);
+            } else if (oneObject.category == "dessert") {
+
+                dessertSection.appendChild(clone);
+            } else {
+                drinksSection.appendChild(clone);
+
+            }
+
+        }
 
     </script>
 
 
-    <footer> <p>Delicious restaurant</p></footer>
+    <footer>
+        <p>Delicious restaurant</p>
+    </footer>
 
 </body>
+
 </html>
