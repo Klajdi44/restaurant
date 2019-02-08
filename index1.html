@@ -53,17 +53,21 @@
   <script>
     const template = document.querySelector("#mytemp").content;
       const main = document.querySelector("main");
+      const productlistLink = "http://kea-alt-del.dk/t5/api/productlist";
+      const imgLink = "https://kea-alt-del.dk/t5/site/imgs/";
 
 
-       for(let i =0; i <10; i++){
+fetch("http://kea-alt-del.dk/t5/api/productlist").then(e=>e.json()).then(data=>data.forEach(showdata))
 
 
-
-
+       function showdata (oneObject){
+           console.log(oneObject.name);
       let clone = template.cloneNode(true);
-      clone.querySelector("h3").textContent="Name of meal";
-      clone.querySelector("h2").textContent="59, - kr.";
-      clone.querySelector("img").src="images/moldaviskfiskesuppe-md.jpg";
+      clone.querySelector("h3").textContent=oneObject.name;
+      clone.querySelector("h2").textContent=oneObject.price + " " + "-kr";
+      clone.querySelector("img").src=imgLink +"small/"+ oneObject.image
+          + "-sm.jpg";
+      clone.querySelector("img").alt=oneObject.name;
 
       main.appendChild(clone);
 
