@@ -27,25 +27,27 @@
 
     <header>
 
-        <h1>Welcome to Petrograd</h1>
-        <img src="images/kartofler.jpg" alt="patejta">
+        <h1 class="welcome">Welcome to Petrograd</h1>
+        <img  class="landscreen" src="images/russianSalad.jpg" alt="patejta">
 
     </header>
 
 
-
     <main>
-       <h2 class="menu">Starters</h2>
+        <h2 class="menu">Starters</h2>
         <section id="starters">
 
 
         </section>
-        <h2 class="menu">Mains</h2>
+        <h2 class="menu">Main courses</h2>
         <section id="mains"></section>
-                <h2 class="menu">Desserts</h2>
+        <h2 class="menu">Side orders</h2>
+        <section id="s-orders"></section>
+
+        <h2 class="menu">Desserts</h2>
 
         <section id="desserts"></section>
-                <h2 class="menu">Drinks</h2>
+        <h2 class="menu">Drinks</h2>
 
         <section id="drinks"></section>
     </main>
@@ -55,6 +57,9 @@
         <article>
 
             <h3>Name</h3>
+            <h4 class="soldout"></h4>
+            <h5 class="discount"></h5>
+            <h6 class="vegeterian"></h6>
             <h2>Price</h2>
             <img src="images/moldaviskfiskesuppe-md.jpg" alt="pic">
 
@@ -71,38 +76,101 @@
     <script>
         const template = document.querySelector("#mytemp").content;
         const main = document.querySelector("main");
-        const productlistLink = "http://kea-alt-del.dk/t5/api/productlist";
+        const productListLink = "http://kea-alt-del.dk/t5/api/productlist";
         const imgLink = "https://kea-alt-del.dk/t5/site/imgs/";
         const starterSection = document.querySelector("#starters");
         const mainSection = document.querySelector("#mains");
         const dessertSection = document.querySelector("#desserts");
+        const sideordersSection = document.querySelector("#s-orders");
         const drinksSection = document.querySelector("#drinks");
 
 
-        fetch("http://kea-alt-del.dk/t5/api/productlist").then(e => e.json()).then(data => data.forEach(showdata))
+        fetch(productListLink).then(e => e.json()).then(data => data.forEach(showdata));
+
 
 
         function showdata(oneObject) {
-            console.log(oneObject.name);
+            console.log(oneObject);
             let clone = template.cloneNode(true);
-            clone.querySelector("h3").textContent = oneObject.name;
+
+                   //fading the soldout part*****************
+        if(oneObject.soldout){
+            const article = clone.querySelector("article");
+            article.classList.add("soldout");
+           /* const message = document.createElement("p");
+            message.textContent="Sold out";
+            clone.appendChild(message);*/
+                            }
+
+
+            if (oneObject.name != "") {
+                clone.querySelector("h3").textContent = oneObject.name;
+            }
+            if (oneObject.discount != "" && oneObject.discount != 0) {
+                clone.querySelector("h5").textContent = oneObject.discount + "%" + " " + "Discount";
+            }
+            if (oneObject.vegetarian) {
+                clone.querySelector("h6").textContent = "vegeterian";
+            }
             clone.querySelector("h2").textContent = oneObject.price + " " + "-kr";
             clone.querySelector("img").src = imgLink + "medium/" + oneObject.image +
                 "-md.jpg";
             clone.querySelector("img").alt = oneObject.name;
             if (oneObject.category == "starter") {
+                if (oneObject.soldout) {
+                    clone.querySelector("h4").textContent = "soldout";
+
+
+                }
                 starterSection.appendChild(clone);
-            } else if (oneObject.category == "main") {
-                mainSection.appendChild(clone);
-            } else if (oneObject.category == "dessert") {
-
-                dessertSection.appendChild(clone);
-            } else {
-                drinksSection.appendChild(clone);
-
             }
 
+            if (oneObject.category == "main") {
+                if (oneObject.soldout) {
+                    clone.querySelector("h4").textContent = "soldout";
+
+
+                }
+
+
+                mainSection.appendChild(clone);
+            }
+
+            if (oneObject.category == "dessert") {
+                if (oneObject.soldout) {
+                    clone.querySelector("h4").textContent = "soldout";
+
+
+                }
+
+                dessertSection.appendChild(clone);
+            }
+
+            if (oneObject.category == "sideorders") {
+                if (oneObject.soldout) {
+                    clone.querySelector("h4").textContent = "soldout";
+
+
+                }
+
+                sideordersSection.appendChild(clone);
+            }
+
+            if (oneObject.category == "drinks") {
+                if (oneObject.soldout) {
+                    clone.querySelector("h4").textContent = "soldout";
+
+
+                }
+
+
+                drinksSection.appendChild(clone);
+            }
         }
+
+
+
+
 
     </script>
 
