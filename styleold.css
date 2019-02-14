@@ -32,8 +32,6 @@
 h1 {
  text-align: center;
     font-size: 2em;
-
-    color:;
     font-family: helvetica;
     font-weight: 900;
 
@@ -47,8 +45,8 @@ h1 {
     width: 100%;
     margin: auto;
     overflow: hidden;
-  text-align: center;
     padding: 15px;
+    align-items: center;
 
 }
 
@@ -57,10 +55,6 @@ h1 {
     color: #fff;
 }
 
-#navbar ul {
-    padding: 0;
-    list-style: none;
-}
 
 #navbar li {
     display: inline;
@@ -72,6 +66,7 @@ h1 {
     font-size: 18px;
     padding-right: 15px;
 }
+
 
 
 
@@ -151,4 +146,97 @@ top: 0;
     font-size: 1.1em;
     color: red;
 float: right;
+    z-index: -1;
 }
+
+h1,h2,h3,h4,h5,h6,p,nav{
+text-transform: capitalize;
+}
+
+.h2Header{
+text-align: center;
+    font-size: 2em;
+    color:;
+    font-family: helvetica;
+    font-weight: 900;
+    background-color: #333;
+    padding: .5em;
+}
+
+button{
+    cursor: pointer;
+}
+
+
+.modal-bg{
+box-sizing: border-box;
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+background-color: #fff;
+}
+
+
+.modal-content{
+background-color: rgba(0,0,0,8);
+width: 80%;
+height: 80%;
+margin: 0 auto;
+margin-top: 5%;
+}
+
+.hide{
+display:none;}
+
+
+
+.seemoreBTN{
+background-color: #333;
+    padding: 1em 2em;
+    border-radius: 5px;
+    width: 50%;
+    margin-top: 5%;
+    border: none;
+}
+
+.closeBTN{
+background-color: #333;
+    padding: 1em 2em;
+    border-radius: 5px;
+    width: 7%;
+    border: none;
+    top: 0;
+    right: 0;
+}
+
+
+header h1{
+
+}
+
+
+
+.modal_img{
+width: 50%;
+    float: right;
+    border-radius: 10px;
+     box-sizing: border-box;
+
+}
+
+.long_dcp{
+text-decoration: none;
+    border: none;
+    background-color: #000;
+    font-size: 1.1em;
+
+
+
+
+}
+
+
+
+
