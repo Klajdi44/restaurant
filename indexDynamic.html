@@ -28,10 +28,11 @@
         <img class="landscreen" src="images/russianSalad.jpg" alt="patejta">
 
     </header>
-
+<!-- modal******************************************************* !-->
     <div class="modal-bg hide">
         <article class="modal-content">
             <h1>Name</h1>
+            <h2 id="pr">Price</h2>
             <img  class="modal_img"src="" alt="img">
             <p class="long_dcp">Long Description</p>
             <button class="closeBTN">X</button>
@@ -41,16 +42,16 @@
     <main>
     </main>
 
+<!-- template******************************************************* !-->
 
     <template id="mytemp">
         <article>
-
+            <img src="images/moldaviskfiskesuppe-md.jpg" alt="pic">
             <h3>Name</h3>
             <h4 class="soldout"></h4>
             <h5 class="discount"></h5>
             <h6 class="vegeterian"></h6>
             <h2>Price</h2>
-            <img src="images/moldaviskfiskesuppe-md.jpg" alt="pic">
             <button class="seemoreBTN">See more</button>
         </article>
     </template>
@@ -85,7 +86,6 @@
                 const newSection = document.createElement("section");
                 const newHeader = document.createElement("h2");
                 newHeader.classList.add("h2Header");
-
                 const newA = document.createElement("a");
                 newA.textContent = cat;
                 newA.href = "#";
@@ -123,9 +123,10 @@
             modal.classList.remove("hide");
 
         }
-
+//modal*****************************************************************
         function showdata(product) {
             modal.querySelector("img").src=imgLink+"medium/"+product.image+"-md.jpg";
+            modal.querySelector("#pr").textContent = product.price + " " + "-";
             //  console.log(product);
             let clone = template.cloneNode(true);
             clone.querySelector
