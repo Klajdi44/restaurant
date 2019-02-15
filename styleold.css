@@ -68,6 +68,8 @@ font-size: 4vw;
 
 #all{
 align-self: auto;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -79,6 +81,7 @@ align-self: auto;
     overflow: hidden;
     padding: 15px;
     align-items: center;
+    display: inline;
 
 }
 
@@ -99,7 +102,7 @@ align-self: auto;
     text-decoration: none;
     font-size: 1.1em;
     padding-right: 15px;
-    margin: .2em;
+    margin: 3em;
 }
 
 
@@ -116,7 +119,7 @@ align-self: auto;
 footer {
    background-color: #333;
     padding: .5em 1em;
-    margin: 1em;
+    margin: 2em;
 }
 
 footer p {
@@ -270,3 +273,64 @@ font-size: 1em;
 
 
 }
+
+@media all and (max-width: 1000px){
+    #navbar a {
+margin: 1em;
+
+}
+
+
+
+}
+@media all and (max-width:690px){
+    .modalGrid{
+        grid-template-columns: none;
+        grid-auto-rows: 1fr 1fr;
+
+
+
+}
+
+
+
+}
+
+@media all and (max-width: 840px){
+    #navbar a {
+     margin: .5em;
+}
+
+
+}
+
+@media all and (max-width: 615px) {
+
+    #navbar a {
+
+
+    margin: .2em;}
+}
+
+
+
+@media all and (max-width: 500px) {
+
+    #navbar a {
+
+
+    margin: 0;
+    padding: 5px;}
+}
+
+@media all and (max-width: 382px) {
+
+    #navbar a {
+
+
+    margin: 0;
+    padding: 3px;}
+}
+
+
+
