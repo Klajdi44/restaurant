@@ -30,16 +30,18 @@
     </header>
 <!-- modal******************************************************* !-->
     <div class="modal-bg hide">
-        <article class="modal-content">
+       <div class="modalGrid">
+        <section class="modal-content">
             <button class="closeBTN">X</button>
             <h1></h1>
             <h2 id="pr"></h2>
             <h5></h5>
             <h3 class="alcoholic"></h3>
             <h6 class="vegeterian"></h6>
-            <img  class="modal_img"src="" alt="img">
             <p class="long_dcp"></p>
-        </article>
+        </section>
+            <img  class="modal_img"src="" alt="img">
+        </div>
     </div>
 
     <main>
@@ -133,7 +135,7 @@
             modal.querySelector(".modal_img").src=imgLink+"medium/" + product.image+"-md.jpg";
             modal.querySelector("#pr").textContent = product.price + " " + "-Kr";
             if (product.discount != "" && product.discount != 0) {
-                modal.querySelector("h5").textContent = product.discount + "%" + " " + "Discount";
+                modal.querySelector("h5").textContent = product.discount + "%" + " " + "Discounted";
              } else {
                  modal.querySelector("h5").textContent=""}
              if (product.vegetarian) {
@@ -179,7 +181,7 @@
                 clone.querySelector("h3").textContent = product.name;
             }
             if (product.discount != "" && product.discount != 0) {
-                clone.querySelector("h5").textContent = product.discount + "%" + " " + "Discount";
+                clone.querySelector("h5").textContent = product.discount + "%" + " " + "Discounted";
             }
             if (product.vegetarian== true) {
                 clone.querySelector(".vegIMG").src="images/vegeterian.png";
