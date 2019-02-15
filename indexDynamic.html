@@ -35,10 +35,10 @@
             <h1></h1>
             <h2 id="pr"></h2>
             <h5></h5>
+            <h3 class="alcoholic"></h3>
             <h6 class="vegeterian"></h6>
-
             <img  class="modal_img"src="" alt="img">
-            <p class="long_dcp">Long Description</p>
+            <p class="long_dcp"></p>
         </article>
     </div>
 
@@ -57,8 +57,9 @@
             <h6 class="vegeterian"></h6>
             <h2>Price</h2>
             <button class="seemoreBTN">See more</button>
-            <img  alt="pic" id="vegIMG">
-        </article>
+            <img alt="pic" class="vegIMG">
+<img src="" alt="" class="alcohol">
+   </article>
     </template>
 
 
@@ -130,12 +131,21 @@
             modal.querySelector("p").textContent = product.longdescription;
             modal.classList.remove("hide");
             modal.querySelector(".modal_img").src=imgLink+"medium/" + product.image+"-md.jpg";
-            modal.querySelector("#pr").textContent = product.price + " " + "-";
-             if (product.discount != "" && product.discount != 0) {
-                modal.querySelector("h5").textContent = product.discount + "%" + " " + "Discount";}
+            modal.querySelector("#pr").textContent = product.price + " " + "-Kr";
+            if (product.discount != "" && product.discount != 0) {
+                modal.querySelector("h5").textContent = product.discount + "%" + " " + "Discount";
+             } else {
+                 modal.querySelector("h5").textContent=""}
              if (product.vegetarian) {
-                modal.querySelector("h6").textContent = "vegeterian";
+                modal.querySelector("h6").textContent = "This product is vegeterian";
             }
+            else {
+                 modal.querySelector("h6").textContent=""}
+
+            if (product.alcohol > 0) {
+                modal.querySelector(".alcoholic").textContent = "This produc contains Alcohol";
+            }
+
 
 
 
@@ -171,9 +181,16 @@
             if (product.discount != "" && product.discount != 0) {
                 clone.querySelector("h5").textContent = product.discount + "%" + " " + "Discount";
             }
-            if (product.vegetarian) {
-                clone.querySelector("h6").textContent = "vegeterian";
+            if (product.vegetarian== true) {
+                clone.querySelector(".vegIMG").src="images/vegeterian.png";
+            } else{
+
+            clone.querySelector(".vegIMG").remove();}
+
+            if (product.alcohol > 0) {
+                clone.querySelector(".alcohol").src="images/alcohol.png"
             }
+
             clone.querySelector("h2").textContent = product.price + " " + "-kr";
             clone.querySelector("img").src = imgLink + "medium/" + product.image +
                 "-md.jpg";

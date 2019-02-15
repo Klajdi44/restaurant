@@ -21,7 +21,7 @@
       article{
           margin: .2em;
           padding: 1em;
-          background-color: #000000;
+          background-color: #000;
         box-shadow: 0 20px 50px rgba(0, 0, 0, .7);
     border-radius: 10px;
          }
@@ -131,12 +131,13 @@ text-align: center;
 
 
 
-.landscreen {
+ header img {
     width: 100%;
-    height: 5%;
+    height: 50%;
     padding: 0;
     margin: 0;
     object-fit: cover;
+
 }
 
 
@@ -173,6 +174,7 @@ text-align: center;
     font-weight: 900;
     background-color: #333;
     padding: .5em;
+    border-radius: 5px;
 }
 
 button{
@@ -187,16 +189,16 @@ top: 0;
 left: 0;
 height: 100%;
 width: 100%;
-background-color: #fff;
+background-color:rgba(0, 0, 0, 0.5);
 }
 
 
 .modal-content{
-background-color: rgba(0,0,0,8);
+background-color:rgb(0, 0, 0);
 width: 80%;
-height: 80%;
+height: 90%;
 margin: 0 auto;
-margin-top: 5%;
+margin-top: 1%;
 }
 
 .hide{
@@ -239,12 +241,30 @@ text-decoration: none;
     border: none;
     background-color: #000;
     font-size: 1.1em;
+}
 
-
+.vegIMG{
+    width: 50px;
+    float: right;
 
 
 }
 
+.alcohol{
+ width: 50px;
+    float: right;
+    margin-right: 3px;
+
+}
+.alcoholic{
+font-size: 1em;
+    color: red;
+
+}
+
+.vegeterian{
+    font-size: 1em;
+    color: green;
 
 
-
+}
